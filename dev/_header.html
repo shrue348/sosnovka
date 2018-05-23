@@ -22,13 +22,49 @@
 	<script src="js/nouislider.min.js"></script>
 	<script src="js/jquery.maskedinput.min.js"></script>
 
+
 	<script src="js/ready.js"></script>
+
+
+
+
+	<script src="js/imagesloaded.pkgd.min.js"></script>
+	<script src="js/three.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
+	<script src="js/hover.js"></script>
+	<script>
+		$(function(){
+			imagesLoaded( document.querySelectorAll('img'), () => {
+				document.body.classList.remove('loading');
+			});
+
+			Array.from(document.querySelectorAll('.header_imgs')).forEach((el) => {
+				const imgs = Array.from(el.querySelectorAll('img'));
+				new hoverEffect({
+					parent: el,
+					intensity: el.dataset.intensity || undefined,
+					speedIn: el.dataset.speedin || undefined,
+					speedOut: el.dataset.speedout || undefined,
+					easing: 'power2.easeInOut',
+					hover: el.dataset.hover || undefined,
+					image1: imgs[0].getAttribute('src'),
+					image2: imgs[1].getAttribute('src'),
+					displacementImage: el.dataset.displacement
+				});
+			});
+		})
+			
+	</script>
 
 	
 </head>
 <body>
-
 	<div class="header">
+		<div class="header_imgs" data-intensity="-0.65" data-speedIn="1.2" data-speedOut="1.2" data-easing="power2.easeInOut">
+			<img src="img/header2.jpg" alt="" style="">
+			<img src="img/header.jpg" alt="" style="">
+		</div>
+
 		<div class="wrapper">
 
 			<div class="header_top">
@@ -48,7 +84,7 @@
 
 
 			<div class="aligncenter mgb15">
-				<a href="javascript: ;" class="header_btn header_btn-purple" data-toggle="modal" data-target="#modal_consult">Запись на презентацию</a>
+				<a href="javascript: ;" class="header_btn header_btn-green" data-toggle="modal" data-target="#modal_present">Запись на презентацию</a>
 			</div>
 			<div class="aligncenter mgb45">
 				<a href="javascript: ;" class="header_btn header_btn-green" data-toggle="modal" data-target="#modal_consult">Консультация специялиста</a>
@@ -66,11 +102,14 @@
 
 		<nav class="header_nav">
 			<ul class="header_nav__list">
-				<li class="header_nav__item"><a href="#block1" class="header_nav__link scrollto">Пункт</a></li>
+				<li class="header_nav__item"><a href="#block1" class="header_nav__link scrollto">Окружение</a></li>
 				<li class="header_nav__item"><a href="#block2" class="header_nav__link scrollto">Архитектура</a></li>
-				<li class="header_nav__item"><a href="#block3" class="header_nav__link scrollto">Пункт</a></li>
-				<li class="header_nav__item"><a href="#block4" class="header_nav__link scrollto">Пункт</a></li>
-				<li class="header_nav__item"><a href="#block5" class="header_nav__link scrollto">Пункт</a></li>
+				<li class="header_nav__item"><a href="#block3" class="header_nav__link scrollto">Тех.характеристики</a></li>
+				<li class="header_nav__item"><a href="#block4" class="header_nav__link scrollto">Ход строительства</a></li>
+				<li class="header_nav__item"><a href="#block5" class="header_nav__link scrollto">Подбор квартиры</a></li>
+				<li class="header_nav__item"><a href="#block6" class="header_nav__link scrollto">Инфраструктура</a></li>
+				<li class="header_nav__item"><a href="#block7" class="header_nav__link scrollto">О компании</a></li>
+				<li class="header_nav__item"><a href="#block8" class="header_nav__link scrollto">Контакты</a></li>
 			</ul>
 		</nav>
 	</div>

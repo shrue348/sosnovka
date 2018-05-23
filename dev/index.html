@@ -134,9 +134,9 @@
 
 
 
-<div class="l_block l_block-img" id="block2">
+<div class="l_block l_block-img" id="block2" data-scroll="5">
 	<div class="wrapper">
-		<h2>Ход строительных работ</h2>
+		<h2>Окружение и среда обитания</h2>
 		
 		<div class="txt">
 			<p>Жилой комплекс «Сосновка», Тореза, 77  ─ это выбор тех, кто предпочитает городской комфорт, привык к развитой инфраструктуре и ценит природное окружение. Новый проект компании «Строительный трест» отличает уникальное местоположение, рядом с одним из самых больших и зеленых городских парков ─ Сосновкой. Помимо этого, в 10 минутах езды от жилого комплекса находятся Муринский и Удельный парки.</p>
@@ -144,6 +144,24 @@
 			<p>Микрорайоны, прилегающие к Сосновке – это престижное место для проживания с качественным транспортным сообщением, магазинами, отделениями банков, салонами красоты, спортивными клубами и торгово-развлекательными комплексами.</p>
 		</div>
 	</div>
+
+	<script>
+		function backgroundParallax() {
+		  window.onscroll = function() {
+		    var elems = document.querySelectorAll("[data-scroll]");
+		    
+		    if( elems.length ) {
+		      for ( var i=0; i < elems.length; i++ ) {
+		        var speed = elems[i].getAttribute('data-scroll');
+		        elems[i].style.backgroundPosition = (-window.pageXOffset/speed) + "px " + (200-window.pageYOffset/speed) + "px" ;
+		      }
+		    }
+		    
+		  }
+		}
+
+		backgroundParallax();
+	</script>
 </div>
 
 
@@ -198,16 +216,25 @@
 	<div class="wrapper">
 		<div class="l_block-car__list">
 			<div class="l_block-car__item">
-				<img src="img/car.jpg" alt="" class="l_block-car__img">
+				<img src="img/gal/1.jpg" alt="" class="l_block-car__img">
 			</div>
 			<div class="l_block-car__item">
-				<img src="img/car.jpg" alt="" class="l_block-car__img">
+				<img src="img/gal/2.jpg" alt="" class="l_block-car__img">
 			</div>
 			<div class="l_block-car__item">
-				<img src="img/car.jpg" alt="" class="l_block-car__img">
+				<img src="img/gal/3.jpg" alt="" class="l_block-car__img">
 			</div>
 			<div class="l_block-car__item">
-				<img src="img/car.jpg" alt="" class="l_block-car__img">
+				<img src="img/gal/4.jpg" alt="" class="l_block-car__img">
+			</div>
+			<div class="l_block-car__item">
+				<img src="img/gal/5.jpg" alt="" class="l_block-car__img">
+			</div>
+			<div class="l_block-car__item">
+				<img src="img/gal/6.jpg" alt="" class="l_block-car__img">
+			</div>
+			<div class="l_block-car__item">
+				<img src="img/gal/7.jpg" alt="" class="l_block-car__img">
 			</div>
 		</div>
 	</div>
@@ -244,6 +271,10 @@
 					<div class="l_block-arh__title">Фасад</div>
 					<div class="l_block-arh__plus"></div>
 
+					<div class="l_block-arh__item-hover">
+						<a href="javascript:;">Подробнее</a>
+					</div>
+
 					<div class="l_block-arh__item-back">
 						<button class="close"></button>
 						<div class="txt">
@@ -257,6 +288,10 @@
 					<div class="l_block-arh__title">МОП</div>
 					<div class="l_block-arh__plus"></div>
 
+					<div class="l_block-arh__item-hover">
+						<a href="javascript:;">Подробнее</a>
+					</div>
+
 					<div class="l_block-arh__item-back">
 						<button class="close"></button>
 						<div class="txt">
@@ -268,6 +303,10 @@
 				<div class="l_block-arh__item">
 					<div class="l_block-arh__title">Закрытая территория</div>
 					<div class="l_block-arh__plus"></div>
+
+					<div class="l_block-arh__item-hover">
+						<a href="javascript:;">Подробнее</a>
+					</div>
 
 					<div class="l_block-arh__item-back">
 						<button class="close"></button>
@@ -284,21 +323,25 @@
 	<script>
 		$(function(){
 			$('.l_block-arh__item').on('click', function(){
-				$('.l_block-arh__item .l_block-arh__item-back').removeClass('visible');
-				$(this).find('.l_block-arh__item-back').addClass('visible')
+				$('.l_block-arh__item .l_block-arh__item-back').parent().removeClass('visible');
+				$(this).find('.l_block-arh__item-back').parent().addClass('visible')
 			})
 
 			$('.l_block-arh__item .close').on('click', function(){
-				$(this).parent().removeClass('visible')
+				$(this).parent().parent().removeClass('visible')
 				return false
 			})
+
+      $(".l_block-arh__item-back .txt").mCustomScrollbar();
 		})
+
+
 	</script>
 </div>
 
 
 
-<div class="l_block l_block-esp">
+<div class="l_block l_block-esp" id="block6">
 	<div class="wrapper">
 		<h2>Отличнительные особенности</h2>
 	</div>
@@ -319,17 +362,6 @@
 						</div>
 						<button data-toggle="modal" data-target="#modal_plan1">План террас</button>
 
-
-						<div class="modal fade" id="modal_plan1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-							<div class="modal-dialog" role="document">
-								<a href="javascript:;" class="close" data-dismiss="modal" aria-label="Close"></a>
-								<div class="modal-content">
-									<img src="img/big_plan_1.png" alt="">
-								</div>
-							</div>
-						</div>
-
-
 					</div>
 				</div>
 			</div>
@@ -345,16 +377,6 @@
 							<p>Площадь помещений для хранения ─ от 3 до 13 м2. В кладовых, как и в паркинге, средняя температура держится на отметке +500С, приборы отопления расположены в общем коридоре, предусмотрено только освещение, без розеток, ГВС и ХВС. Доступ к кладовым в секциях 8-11 возможен на лифте и по лестнице с улицы, в секциях 12-13-14 ─ по лестнице с улицы.</p>
 						</div>
 						<button data-toggle="modal" data-target="#modal_plan2">План кладовых</button>
-
-
-						<div class="modal fade" id="modal_plan2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-							<div class="modal-dialog" role="document">
-								<a href="javascript:;" class="close" data-dismiss="modal" aria-label="Close"></a>
-								<div class="modal-content">
-									<img src="img/big_plan_1.png" alt="">
-								</div>
-							</div>
-						</div>
 
 					</div>
 				</div>
@@ -433,7 +455,7 @@
 			</div>
 
 			<div class="aligncenter">
-				<a href="javascript:;" class="button">Запись на презентацию</a>
+				<a href="javascript:;" class="button" data-toggle="modal" data-target="#modal_present">Запись на презентацию</a>
 			</div>
 		</div>
 	</div>
@@ -719,9 +741,14 @@
 
 
     $(function(){
-    	$('.char_list__item').on('click', function(){
+    	$('.char_list__item').on('mouseenter', function(){
     		$('.char_list__item').removeClass('active')
     		$(this).addClass('active')
+    		return false
+    	})
+
+    	$('.char_list__back').on('mouseout', function(){
+    		$(this).parent().removeClass('active')
     		return false
     	})
 
@@ -868,7 +895,7 @@
 	<div id="map"></div>
 
 
-	<script src="//api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+	<script src="http://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
 	<script>
 	ymaps.ready(init);
 

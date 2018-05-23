@@ -270,7 +270,7 @@ MagnificPopup.prototype = {
 		if(mfp.fixedContentPos) {
 			mfp.wrap.css({
 				overflow: mfp.st.overflowY,
-				overflowX: 'hidden',
+				// overflowX: 'hidden',
 				overflowY: mfp.st.overflowY
 			});
 		} else {
@@ -327,10 +327,10 @@ MagnificPopup.prototype = {
 
 		if(mfp.fixedContentPos) {
 			if(!mfp.isIE7) {
-				windowStyles.overflow = 'hidden';
+				// windowStyles.overflow = 'hidden';
 			} else {
 				// ie7 double-scroll bug
-				$('body, html').css('overflow', 'hidden');
+				// $('body, html').css('overflow', 'hidden');
 			}
 		}
 
@@ -421,7 +421,7 @@ MagnificPopup.prototype = {
 		if(mfp.fixedContentPos) {
 			var windowStyles = {marginRight: ''};
 			if(mfp.isIE7) {
-				$('body, html').css('overflow', '');
+				// $('body, html').css('overflow', '');
 			} else {
 				windowStyles.overflow = '';
 			}

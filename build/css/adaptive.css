@@ -1,6 +1,6 @@
 
 @media (min-width: 980px) {
-	
+	.char_list__back .close { display: none; }
 }
 
 
