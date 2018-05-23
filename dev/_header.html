@@ -35,33 +35,37 @@
 	<script src="js/hover.js"></script>
 	<script>
 		$(function(){
+			var animation;
 			imagesLoaded( document.querySelectorAll('img'), () => {
 				document.body.classList.remove('loading');
 			});
 
 			Array.from(document.querySelectorAll('.header_imgs')).forEach((el) => {
 				const imgs = Array.from(el.querySelectorAll('img'));
-				new hoverEffect({
+				animation = new hoverEffect({
 					parent: el,
 					intensity: el.dataset.intensity || undefined,
 					speedIn: el.dataset.speedin || undefined,
 					speedOut: el.dataset.speedout || undefined,
 					easing: 'power2.easeInOut',
-					hover: el.dataset.hover || undefined,
+					hover: false,
 					image1: imgs[0].getAttribute('src'),
 					image2: imgs[1].getAttribute('src'),
 					displacementImage: el.dataset.displacement
 				});
 			});
+
+			$('.header').on('mouseenter click', function(){
+				animation.next()
+			})
 		})
-			
+
 	</script>
 
-	
 </head>
 <body>
 	<div class="header">
-		<div class="header_imgs" data-intensity="-0.65" data-speedIn="1.2" data-speedOut="1.2" data-easing="power2.easeInOut">
+		<div class="header_imgs" data-intensity="-0.65" data-speedIn="1.2" data-speedOut="1.2" data-easing="power2.easeInOut" data-displacement="img/disp.jpg" data-hover="false">
 			<img src="img/header2.jpg" alt="" style="">
 			<img src="img/header.jpg" alt="" style="">
 		</div>

@@ -35,33 +35,37 @@
 	<script src="js/hover.js"></script>
 	<script>
 		$(function(){
+			var animation;
 			imagesLoaded( document.querySelectorAll('img'), () => {
 				document.body.classList.remove('loading');
 			});
 
 			Array.from(document.querySelectorAll('.header_imgs')).forEach((el) => {
 				const imgs = Array.from(el.querySelectorAll('img'));
-				new hoverEffect({
+				animation = new hoverEffect({
 					parent: el,
 					intensity: el.dataset.intensity || undefined,
 					speedIn: el.dataset.speedin || undefined,
 					speedOut: el.dataset.speedout || undefined,
 					easing: 'power2.easeInOut',
-					hover: el.dataset.hover || undefined,
+					hover: false,
 					image1: imgs[0].getAttribute('src'),
 					image2: imgs[1].getAttribute('src'),
 					displacementImage: el.dataset.displacement
 				});
 			});
+
+			$('.header').on('mouseenter click', function(){
+				animation.next()
+			})
 		})
-			
+
 	</script>
 
-	
 </head>
 <body>
 	<div class="header">
-		<div class="header_imgs" data-intensity="-0.65" data-speedIn="1.2" data-speedOut="1.2" data-easing="power2.easeInOut">
+		<div class="header_imgs" data-intensity="-0.65" data-speedIn="1.2" data-speedOut="1.2" data-easing="power2.easeInOut" data-displacement="img/disp.jpg" data-hover="false">
 			<img src="img/header2.jpg" alt="" style="">
 			<img src="img/header.jpg" alt="" style="">
 		</div>
@@ -249,7 +253,7 @@
 
 
 
-<div class="l_block l_block-img" id="block2" data-scroll="5">
+<div class="l_block l_block-img" id="block2" data-scroll="2">
 	<div class="wrapper">
 		<h2>Окружение и среда обитания</h2>
 		
@@ -268,7 +272,7 @@
 		    if( elems.length ) {
 		      for ( var i=0; i < elems.length; i++ ) {
 		        var speed = elems[i].getAttribute('data-scroll');
-		        elems[i].style.backgroundPosition = (-window.pageXOffset/speed) + "px " + (200-window.pageYOffset/speed) + "px" ;
+		        elems[i].style.backgroundPosition = (-window.pageXOffset/speed) + "px " + (1000-window.pageYOffset/speed) + "px" ;
 		      }
 		    }
 		    
@@ -516,10 +520,10 @@
 					<img src="img/char1.png" alt="" class="char_list__img">
 					<div class="char_list__title">Электрическая <br>разводка</div>
 					<div class="char_list__back">
-						Электрическая разводка ─ 
-						полная, скрытая, с установкой
-						выключателей и розеток, двухтарифными электрическими счетчиками с автоматическими выключателями. Все приборы учета размещены в местах общего пользования и не занимают 
-						место в вашей квартире.
+						<div class="inside">
+							<span class="underline">Система отопления</span> - радиаторы производства Vogel&Noot, со встроенными клапанами термо-регулятора, счетчики учета расхода тепла.
+						</div>
+						
 						<button class="close"></button>
 					</div>
 				</div>
@@ -527,10 +531,7 @@
 					<img src="img/char2.png" alt="" class="char_list__img">
 					<div class="char_list__title">Вентиляция</div>
 					<div class="char_list__back">
-						Электрическая разводка ─ 
-						полная, скрытая, с установкой
-						выключателей и розеток, двухтарифными электрическими счетчиками с автоматическими выключателями. Все приборы учета размещены в местах общего пользования и не занимают 
-						место в вашей квартире.
+						<div class="inside"><span class="underline">Водоснабжение и водоотведение</span> - магистральные трубопроводы ГВС и ХВС с распределительными коллекторами и счетчиками учета расхода воды проходят в отдельных технологических нишах, размещенных в межквартирных коридорах. <br>Ввод ГВС и ХВС в квартиру осуществляется из межквартирного коридора под потолком.</div>
 						<button class="close"></button>
 					</div>
 				</div>
@@ -538,10 +539,7 @@
 					<img src="img/char3.png" alt="" class="char_list__img">
 					<div class="char_list__title">Водоснабжение <br>и водоотведение</div>
 					<div class="char_list__back">
-						Электрическая разводка ─ 
-						полная, скрытая, с установкой
-						выключателей и розеток, двухтарифными электрическими счетчиками с автоматическими выключателями. Все приборы учета размещены в местах общего пользования и не занимают 
-						место в вашей квартире.
+						<div class="inside"><span class="underline">Электрическая разводка</span> – полная, скрытая, с установкой выключателей и розеток, двух- тарифными электрическими счетчиками с автоматическими выключателями. Все приборы учета размещены в местах общего пользования, не занимая место в вашей квартире.</div>
 						<button class="close"></button>
 					</div>
 				</div>
@@ -549,10 +547,7 @@
 					<img src="img/char4.png" alt="" class="char_list__img">
 					<div class="char_list__title">Система <br>отопления</div>
 					<div class="char_list__back">
-						Электрическая разводка ─ 
-						полная, скрытая, с установкой
-						выключателей и розеток, двухтарифными электрическими счетчиками с автоматическими выключателями. Все приборы учета размещены в местах общего пользования и не занимают 
-						место в вашей квартире.
+						<div class="inside"><span class="underline">Вентиляция</span> – приточно-вытяжная с естественным побуждением и системой микропроветри вания «Airbox». Вентиляционные шахты находятся в «теле» кирпичной кладки.</div>
 						<button class="close"></button>
 					</div>
 				</div>
@@ -560,10 +555,7 @@
 					<img src="img/char5.png" alt="" class="char_list__img">
 					<div class="char_list__title">Кондиционеры</div>
 					<div class="char_list__back">
-						Электрическая разводка ─ 
-						полная, скрытая, с установкой
-						выключателей и розеток, двухтарифными электрическими счетчиками с автоматическими выключателями. Все приборы учета размещены в местах общего пользования и не занимают 
-						место в вашей квартире.
+						<div class="inside"><span class="underline">Кондиционеры</span> – могут быть установлены в шахтах лестнично-лифтового узла на любом из этажей.</div>
 						<button class="close"></button>
 					</div>
 				</div>
