@@ -551,9 +551,9 @@ select {
 .l_block-arh__item-hover { position: absolute; margin: auto; top: 0; left: 0; bottom: 0; right: 0; z-index: 10; visibility: hidden; opacity: 0; transition: all 0.2s ease; text-align: center; }
 .l_block-arh__item-hover a { position: absolute; margin: auto; bottom: 0; left: 0; right: 0; color: #fff; font-size: 12px; text-transform: uppercase; height: 38px; line-height: 38px; background-color: #ab6ef6; padding: 0 37px; max-width: 150px; transition: all 0.2s ease; font-family: 'Lato Light';}
 .l_block-arh__item-hover a:hover {  background-color: #cb8ef6; }
-.l_block-arh__item .l_block-arh__item-hover:nth-child(1) { background: url(../img/3block1.png) no-repeat scroll center / cover transparent; }
-.l_block-arh__item .l_block-arh__item-hover:nth-child(2) { background: url(../img/3block2.png) no-repeat scroll center / cover transparent; }
-.l_block-arh__item .l_block-arh__item-hover:nth-child(3) { background: url(../img/3block3.png) no-repeat scroll center / cover transparent; }
+.l_block-arh__item:nth-child(1) .l_block-arh__item-hover { background: url(../img/3block1.png) no-repeat scroll center / cover transparent; }
+.l_block-arh__item:nth-child(2) .l_block-arh__item-hover { background: url(../img/3block2.png) no-repeat scroll center / cover transparent; }
+.l_block-arh__item:nth-child(3) .l_block-arh__item-hover { background: url(../img/3block3.png) no-repeat scroll center / cover transparent; }
 
 .l_block-arh__item:hover .l_block-arh__item-hover { visibility: visible; opacity: 1; }
 
