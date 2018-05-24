@@ -713,24 +713,10 @@ select {
 
 .header canvas { width: 1920px !important; height: 840px !important; margin: auto; position: absolute; top: -1000px; right: -1000px; bottom: -1000px; left: -1000px; }
 
-
-
 .header_imgs { position: absolute; margin: auto; top: 0; right: 0; bottom: 0; left: 0; z-index: 1;}
-.header_imgs img {
-    height: 100%;
-    display: block;
-}
-
-.header_imgs img:nth-child(2) {
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 0;
-    transition: opacity 0.3s;
-}
-.header_imgs img {
-    display: none;
-}
+.header_imgs img { height: 100%; display: block; }
+.header_imgs img:nth-child(2) { position: absolute; top: 0; left: 0; opacity: 0; transition: opacity 0.3s;}
+.header_imgs img { display: none; }
 
 
 
