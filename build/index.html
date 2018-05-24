@@ -71,7 +71,6 @@
 		</div>
 
 		<div class="wrapper">
-
 			<div class="header_top">
 				<div class="row">
 					<div class="col-4 off-4">
@@ -88,10 +87,10 @@
 			</div>
 
 
-			<div class="aligncenter mgb15">
+			<div class="header_btn_wrap header_btn_wrap-1">
 				<a href="javascript: ;" class="header_btn header_btn-green" data-toggle="modal" data-target="#modal_present">Запись на презентацию</a>
 			</div>
-			<div class="aligncenter mgb45">
+			<div class="header_btn_wrap header_btn_wrap-2">
 				<a href="javascript: ;" class="header_btn header_btn-green" data-toggle="modal" data-target="#modal_consult">Консультация специялиста</a>
 			</div>
 
@@ -265,14 +264,17 @@
 	</div>
 
 	<script>
+
 		function backgroundParallax() {
+			var offset = $('.l_block-img').offset().top
+
 		  window.onscroll = function() {
 		    var elems = document.querySelectorAll("[data-scroll]");
 		    
 		    if( elems.length ) {
 		      for ( var i=0; i < elems.length; i++ ) {
 		        var speed = elems[i].getAttribute('data-scroll');
-		        elems[i].style.backgroundPosition = (-window.pageXOffset/speed) + "px " + (1000-window.pageYOffset/speed) + "px" ;
+		        elems[i].style.backgroundPosition = (-window.pageXOffset/speed) + "px " + (offset/2 -window.pageYOffset/speed) + "px" ;
 		      }
 		    }
 		    
@@ -467,6 +469,7 @@
 
 	<div class="l_block-esp__list">
 		<div class="l_block-esp__item">
+			<div class="l_block-esp__title l_block-esp__title-fake">Квартиры с террасами</div>
 			<div class="l_block-esp__item-half">
 				<img src="img/esp1.jpg" alt="" class="l_block-esp__img">
 			</div>
@@ -487,6 +490,7 @@
 		</div>
 
 		<div class="l_block-esp__item">
+			<div class="l_block-esp__title l_block-esp__title-fake">Система хранения вещей</div>
 			<div class="l_block-esp__item-half">
 				<div class="l_block-esp__item-half-inside">
 					<div class="l_block-esp__title">Система хранения вещей</div>
