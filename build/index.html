@@ -35,41 +35,28 @@
 	<script src="js/hover.js"></script>
 	<script>
 		$(function(){
-			var animation;
-			imagesLoaded( document.querySelectorAll('img'), () => {
-				document.body.classList.remove('loading');
-			});
-
-			Array.from(document.querySelectorAll('.header_imgs')).forEach((el) => {
-				const imgs = Array.from(el.querySelectorAll('img'));
-				animation = new hoverEffect({
-					parent: el,
-					intensity: el.dataset.intensity || undefined,
-					speedIn: el.dataset.speedin || undefined,
-					speedOut: el.dataset.speedout || undefined,
-					easing: 'power2.easeInOut',
-					hover: false,
-					image1: imgs[0].getAttribute('src'),
-					image2: imgs[1].getAttribute('src'),
-					displacementImage: el.dataset.displacement
-				});
-			});
-
-			$('.header').on('mouseenter click', function(){
-				animation.next()
+			var myAnimation = new hoverEffect({
+	        parent: document.querySelector('.header'),
+	        intensity: 0.3,
+	        hover: false,
+	        image1: 'img/header2.jpg',
+	        image2: 'img/header.jpg',
+	        displacementImage: 'img/disp.jpg'
+	    });
+	    $('.header').on('mouseenter click', function(){
+				myAnimation.next()
 			})
 		})
-
 	</script>
 
 </head>
 <body>
 	<div class="header">
-		<div class="header_imgs" data-intensity="-0.65" data-speedIn="1.2" data-speedOut="1.2" data-easing="power2.easeInOut" data-displacement="img/disp.jpg" data-hover="false">
+		<!-- <div class="header_imgs" data-intensity="-0.65" data-speedIn="1.2" data-speedOut="1.2" data-easing="power2.easeInOut" data-displacement="img/disp.jpg" data-hover="false">
 			<img src="img/header2.jpg" alt="" style="">
 			<img src="img/header.jpg" alt="" style="">
 		</div>
-
+ -->
 		<div class="wrapper">
 			<div class="header_top">
 				<div class="row">
