@@ -52,3 +52,23 @@ $(function(){
 $(function(){
   $('[name=phone]').mask("+7 (999) 999-9999");
 })
+
+
+$(function(){
+  $('.l_block-map__title').on('click', function(){
+    $('.l_block-map__list').slideToggle()
+  })
+})
+  
+
+$(function(){
+  $('.m_menu__toggle').on('click', function(){
+    $('.m_menu').toggleClass('active')
+    $('.m_menu__toggle').toggleClass('active')
+  })
+
+   $('.m_menu__close').on('click', function(){
+    $('.m_menu').removeClass('active')
+    $('.m_menu__toggle').removeClass('active')
+  })
+})
